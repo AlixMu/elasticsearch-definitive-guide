@@ -1,5 +1,5 @@
 [[algorithmic-stemmers]]
-=== Algorithmic Stemmers
+ +=== 词干提取算法
 
 Most of the stemmers available in Elasticsearch are algorithmic((("stemming words", "algorithmic stemmers"))) in that they
 apply a series of rules to a word in order to reduce it to its root form, such
@@ -147,4 +147,3 @@ PUT /my_index
 <1> Replaced the `english` stemmer with the less aggressive
     `light_english` stemmer
 <2> Added the `asciifolding` token filter
-
