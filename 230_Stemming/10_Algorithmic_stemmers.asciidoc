@@ -1,7 +1,7 @@
 [[algorithmic-stemmers]]
 === 词干提取算法
 
-Elasticsearch 中的大部分 stemmers （词干提取器）是基于算法的，它们提供了一系列规则用于将一个词提取为它的词根形式，例如剥离复数词末尾的 `s` 或 `es` 。提取单词词干时并不需知道该词的任何信息。
+Elasticsearch 中的大部分 stemmers （词干提取器）是基于算法的，它们提供了一系列规则用于将一个词提取为它的词根形式，例如剥离复数词末尾的 `s` 或 `es` 。提取单词词干时并不需要知道该词的任何信息。
 
 这些基于算法的 stemmers 优点是：可以作为插件使用，速度快，占用内存少，有规律的单词处理效果好。缺点是：没规律的单词例如 `be` 、 `are` 、和 `am` ，或 `mice` 和 `mouse` 效果不好。
 
@@ -62,7 +62,7 @@ Elasticsearch 中的大部分 stemmers （词干提取器）是基于算法的�
 <1> `keyword_marker` 分词过滤器列出那些不用被词干提取的单词。这个过滤器默认情况下是一个空的列表。
 <2> `english` 分析器使用了两个词干提取器： `possessive_english` 词干提取器和 `english` 词干提取器。  ((("english stemmer")))((("possessive_english stemmer"))) 所有格词干提取器会在任何词传递到  `english_stop` 、 `english_keywords` 和 `english_stemmer` 之前去除 `'s` 。
 
-从新审查下现在的配置，添加上以下修改，我们可以把这份配置当作新分析器的基本配置：
+重新审视下现在的配置，添加上以下修改，我们可以把这份配置当作新分析器的基本配置：
 
 *  修改 `english_stemmer` ，将  `english` （{ref}/analysis-porterstem-tokenfilter.html[`porter_stem`] 分词过滤器的映射）替换为 `light_english` （非激进的 {ref}/analysis-kstem-tokenfilter.html[`kstem`] 分词过滤器的映射）。
 
